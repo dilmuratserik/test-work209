@@ -9,9 +9,7 @@ class ProductCollection extends ResourceCollection
     public function toArray($request)
     {
         return [
-            'data' => $this->collection->map(function ($item) {
-                return new ProductResource($item);
-            }),
+            'data' => ProductResource::collection($this->collection),
         ];
     }
 }

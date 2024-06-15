@@ -15,9 +15,7 @@ class OrderItemCollection extends ResourceCollection
     public function toArray($request)
     {
         return [
-            'data' => $this->collection->map(function ($orderItem) {
-                return new OrderItemResource($orderItem);
-            }),
+            'data' => OrderItemResource::collection($this->collection),
         ];
     }
 
